@@ -1,0 +1,49 @@
+
+.contact-section{
+  font-family: 'Courier New', Courier, monospace;
+}
+  .container-contact {
+    display: flex;
+    justify-content: space-between; /* Space between form and image */
+    align-items: center;
+    max-width: 900px; /* Adjust max-width as needed */
+    margin: 0 auto;
+    padding: 20px;
+    max-height: 700px;
+  }
+  
+  .contact-form {
+    width: 50%; 
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid aliceblue;
+    box-shadow: 0 0 10px 10px rgba(7, 134, 225, 0.1);
+    /* background-color: rgba(red, green, rgba(21, 154, 231, 0.886), alpha) */
+  }
+  
+  .contact-image {
+    max-width: 50%;
+    text-align: right;
+  }
+  
+  .contact-image img {
+    max-width: 100%;
+    height: auto; 
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .container-contact {
+      flex-direction: column; /* Stack form and image on smaller screens */
+      align-items: center;
+    }
+    .contact-image{
+      display: none;
+    }
+  
+    .contact-form,
+    .contact-image {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
