@@ -20,7 +20,7 @@ const EditProduct = () => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:8080/product/${id}`);
+        const response = await fetch(`https://product-service-deploy-production.up.railway.app/${id}`);
         if (!response.ok) throw new Error('Product not found');
         const product = await response.json();
         setFormData(product);
@@ -48,7 +48,7 @@ const EditProduct = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8080/product/update/${id}`, {
+      const response = await fetch(`https://product-service-deploy-production.up.railway.app/update/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

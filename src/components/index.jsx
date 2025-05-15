@@ -13,7 +13,7 @@ const ProductTable = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try{
-      const res = await fetch('http://localhost:8080/products');
+      const res = await fetch('https://product-service-deploy-production.up.railway.app/products');
       const data = await res.json();
       setProducts(data);
     }
@@ -32,7 +32,7 @@ const ProductTable = () => {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:8080/product/delete/${id}`, {
+      const response = await fetch(`https://product-service-deploy-production.up.railway.app/delete/${id}`, {
         method: 'DELETE',
       });
   

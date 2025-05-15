@@ -26,7 +26,7 @@ const CreateProducts = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8080/product/create', {
+      const response = await fetch('https://product-service-deploy-production.up.railway.app/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
