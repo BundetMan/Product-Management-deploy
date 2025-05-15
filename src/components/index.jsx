@@ -32,7 +32,7 @@ const ProductTable = () => {
       return;
     }
     try {
-      const response = await fetch(`https://product-service-deploy-production.up.railway.app/delete/${id}`, {
+      const response = await fetch(`https://product-service-deploy-production.up.railway.app/product/delete/${id}`, {
         method: 'DELETE',
       });
   

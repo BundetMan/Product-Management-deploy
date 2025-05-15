@@ -48,7 +48,7 @@ const EditProduct = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch(`https://product-service-deploy-production.up.railway.app/update/${id}`, {
+      const response = await fetch(`https://product-service-deploy-production.up.railway.app/product/update/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
