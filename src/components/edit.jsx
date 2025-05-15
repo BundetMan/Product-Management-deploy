@@ -20,7 +20,7 @@ const EditProduct = () => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`https://product-service-deploy-production.up.railway.app/${id}`);
+        const response = await fetch(`https://product-service-deploy-production.up.railway.app/product/${id}`);
         if (!response.ok) throw new Error('Product not found');
         const product = await response.json();
         setFormData(product);
