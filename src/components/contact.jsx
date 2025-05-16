@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import '../assets/css/contact.css';
+import { toast } from "react-toastify";
 
 const Contact = () => {
     const [name, setName] = useState('');
@@ -18,11 +19,7 @@ const Contact = () => {
         setName('');
         setEmail('');
         setMessage('');
-        Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: 'Your message sent successfully !',
-          });
+        toast.success('Form submitted successfully!');
     }
   return (
     <section className="contact-section mt-5" id='contact-us' >

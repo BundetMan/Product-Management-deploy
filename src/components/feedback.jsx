@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import '../assets/css/feedback.css';
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 const FeedbackSection = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -16,11 +17,7 @@ const FeedbackSection = () => {
             setName('');
             setEmail('');
             setMessage('');
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: 'Your message sent successfully !',
-              });
+            toast.success('Feedback submitted successfully!');
   };
 
   return (
