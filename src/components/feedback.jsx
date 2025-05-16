@@ -1,23 +1,40 @@
 import React, { useState } from "react";
 import '../assets/css/feedback.css';
-import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import 'bootstrap/dist/css/bootstrap.min.css';
 const FeedbackSection = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-  const handleSubmit = (e) => {
+    const [loading, setLoading] = useState(false);
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const details = {
-                name: name,
-                email: email,
-                message: message
-            };
-            console.log("Form submitted", details);
-            setName('');
-            setEmail('');
-            setMessage('');
-            toast.success('Feedback submitted successfully!');
+    setLoading(true);
+
+    const payload = { name, email, message };
+    try {
+      const response = await fetch('http://localhost:8080/feedback/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast.success('Feedback sent successfully!');
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        toast.error('Failed to send: ' + result.message);
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('Something went wrong!');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -57,10 +74,9 @@ const FeedbackSection = () => {
                 className="w-full p-3 border border-gray-300 rounded-lg"
             ></textarea>
             <button
-                type="submit"
-                className="btn w-full flex justify-center items-center gap-2 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+                type="submit" disabled={loading}
             >
-                Submit
+              {loading ? <span className="spinner-border spinner-border-sm"></span> : 'Send Feedback'}
                 <i className="fab fa-telegram-plane text-xl"></i>
             </button>
           </form>
