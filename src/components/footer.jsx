@@ -10,7 +10,7 @@ export default function Footer() {
         <p className="mb-1">© 2025 Koemchhoeurn Bundet. All rights reserved.</p>
         
         <a
-          href="https://github.com/det2005"
+          href="https://github.com/Bundetman"
           target="_blank"
           rel="noopener noreferrer"
           className="text-decoration-none text-dark"
