@@ -13,7 +13,7 @@ const FeedbackSection = () => {
 
     const payload = { name, email, message };
     try {
-      const response = await fetch('http://localhost:8080/feedback/send', {
+      const response = await fetch('https://product-service-deploy-production.up.railway.app/feedback/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

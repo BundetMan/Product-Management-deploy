@@ -16,7 +16,7 @@ const Contact = () => {
       const payload = { name, email, message };
 
     try {
-      const response = await fetch('http://localhost:8080/contact/send', {
+      const response = await fetch('https://product-service-deploy-production.up.railway.app/contact/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
